@@ -1,6 +1,6 @@
 /* Open Index */
 function openIndex() {
-    window.location.href = '/home.html';
+    window.location.href = '/portfolio/home.html';
 }
 
 /* Include Header */
