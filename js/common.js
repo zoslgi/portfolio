@@ -1,6 +1,6 @@
 /* Open Index */
 function openIndex() {
-    window.location.href = '/Pofol/html/home.html';
+    window.location.href = '/home.html';
 }
 
 /* Include Header */
