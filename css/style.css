@@ -1,79 +1,89 @@
 body{
     margin:0;
+    overflow-x:hidden;
+    overflow-y:hidden;
 }
 
-/* Header */
-header table{
+#header{
+    position:absolute;
+}
+
+.content{
+    display:none;
+}
+
+#hRight{
     position:absolute;
     top:30px;
+    left:1100px
 }
 
-header td{
-    padding-left:40px;
-}
-
-header #left{
+#hLeft{
+    position:absolute;
+    top:30px;
     left:420px;
 }
 
-header #right{
-    left:1100px;
+#hRight td{
+    padding-left:40px;
 }
 
-/* Content */
-content .slide{
-    display: none;
+.body .content{
+    width:1920px;
+    height:1080px;
 }
 
-line #sLine{
+.line{
     position:absolute;
     display:none;
+}
+
+#homeSline{
     top:120px;
     left:670px;
 }
 
-line #gLine{
-    position:absolute;
+#homeGLine{
     top:534px;
     left:1920px;
+    display:block !important;
 }
 
-line #itsmeLine{
-    position:absolute;
-    display:none;
+#itsmeLine{    
     top:319px;
     left:1348px;
 }
 
-line #twoItsmeLine{
-    position:absolute;
-    display:none;
+#twoItsmeLine{
     top:317px;
     left:-107px;
 }
 
-line #conLine{
+#contLine{
     position:absolute;
     display:none;
     top:319px;
     left:982px;
 }
 
-#btnMove table{
+#rMove{
     position:absolute;
+    cursor: pointer;
     top:480px;
-}
-
-#rightMove{
     left:1840px;
 }
 
-#leftMove{
+#lMove{
+    position:absolute;
+    cursor: pointer;
+    display: none;
+    top:480px;
     left:40px;
 }
 
-.linkPo{
+#linkPo{
     position:absolute;
+    cursor: pointer;
     top:660px;
     left:820px;
 }

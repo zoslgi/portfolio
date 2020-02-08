@@ -3,60 +3,39 @@ function openIndex() {
     window.location.href = '/portfolio/home.html';
 }
 
-/* Include Header */
-/* Show First Content */
-function includeHtml() {
-    /* Content */
-    showContent(document);
-    /* wheel Event */
-    moveWheel(document);
-
-    return;
+/* Onload Html */
+var main   = "";
+var conCnt = 0;
+var itsCnt = 1;
+function onloadHtml(x) {
+    main   = x;
+    conCnt = document.getElementsByClassName('content').length;
+    document.getElementById(x+itsCnt).style.display = "block";  
+    moveWheel();
 }
 
-/* Content */
-var cnt     = 0;
-var slide   = "";
-function showContent() {
-    slide = document.getElementsByClassName('slide');
-    if(slide.length =="0") return;
-    slide[cnt].style.display = "block";
-}
-
-/* Move Slide */
+/* Move Content */
 function moveSlide(x) {
-    if(slide.length =="0") return;
-    
-    cnt += Number(x); 
-    if(cnt > slide.length-1) cnt = 0;
-    if(cnt < 0) cnt = slide.length-1;
+    document.getElementById(main+itsCnt).style.display = "none";
+    itsCnt = itsCnt + Number(x)
+    document.getElementById(main+itsCnt).style.display = "block";
 
-    for(var i=0; i<slide.length; i++) { slide[i].style.display = "none"; }
-    slide[cnt].style.display = "block";
+    (itsCnt != conCnt) ? document.getElementById('rMove').style.display = "block" : document.getElementById('rMove').style.display = "none";
+    (itsCnt != 1) ? document.getElementById('lMove').style.display = "block" : document.getElementById('lMove').style.display = "none";
 }
 
-/* Move koreEduPopup */
-function popUpCuk() {
-    window.open('http://grad.cuk.edu/index.do');
-}
-
-/* Move Potfolio */
-function popUpPo() {
-    window.open('http://hongsi.x-y.net/2017_ui6/zsg_c/');
-}
-
-/* wheel Event */
-function moveWheel(x) {
-    window.addEventListener('mousewheel', function(delta) {
-        if(slide.length =="0") return;
-
+/* Move Wheel */
+function moveWheel() {
+    window.addEventListener('mousewheel', function(delta){
         var wheel = delta.wheelDelta;
-        (wheel > 0) ? cnt-- : cnt++;
-
-        if(cnt < 0 && wheel > 0) cnt = slide.length-1;
-        if(cnt == slide.length && wheel < 0) cnt = 0;
-
-        for(var i=0; i<slide.length; i++) { slide[i].style.display = "none"; }
-        slide[cnt].style.display = "block";
+        if(wheel > 0 && (itsCnt) == 1) return false;
+        if(wheel < 0 && (itsCnt) == conCnt) return false;
+   
+        document.getElementById(main+itsCnt).style.display = "none";
+        (wheel > 0) ? itsCnt-- : itsCnt++;
+        document.getElementById(main+itsCnt).style.display = "block";
+        
+        (itsCnt != conCnt) ? document.getElementById('rMove').style.display = "block" : document.getElementById('rMove').style.display = "none";
+        (itsCnt != 1) ? document.getElementById('lMove').style.display = "block" : document.getElementById('lMove').style.display = "none";
     });
 }
