@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Home</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('#sLine').show('slow');
+           $('#gLine').animate({left:958}, 'slow');
+        });
+    </script>
+    <!-- script -->
+    <script type="text/javascript" src="/portfolio/js/common.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="/portfolio/css/style.css">
+</head>
+<body onload="includeHtml()">    
+    <!-- Header -->
+    <header>        
+        <table id="right">
+            <td>
+                <a href="/portfolio/itsMe.html">
+                    <img id="wItsme" class="wHead" src="/portfolio/img/font/wItsme.png">
+                </a>
+            </td>
+            <td>
+                <a href="/portfolio/content.html">
+                    <img id="wContent" class="wHead" src="/portfolio/img/font/wContent.png">
+                </a>    
+            </td>
+            <td>
+                <a href="/portfolio/work.html">
+                    <img id="wWork" class="wHead" src="/portfolio/img/font/wWork.png">
+                </a>
+            </td>
+        </table>
+    </header>
+    <!-- Content -->
+    <content>
+        <img src="/portfolio/img/home.png">
+    </content>
+    <!-- Line -->
+    <line>
+        <img id="sLine" src="/portfolio/img/sLine.png">
+        <img id="gLine" src="/portfolio/img/gLine.png">
+    </line>
+</body>
+</html>

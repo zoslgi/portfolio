@@ -1,0 +1,90 @@
+body{
+    margin:0;
+}
+
+/* Header */
+header table{
+    position:absolute;
+    top:30px;
+}
+
+header td{
+    padding-left:40px;
+}
+
+header #left{
+    left:420px;
+}
+
+header #right{
+    left:1100px;
+}
+
+/* Content */
+content .slide{
+    display: none;
+}
+
+line #sLine{
+    position:absolute;
+    display:none;
+    top:120px;
+    left:670px;
+}
+
+line #gLine{
+    position:absolute;
+    top:534px;
+    left:1920px;
+}
+
+line #itsmeLine{
+    position:absolute;
+    display:none;
+    top:319px;
+    left:1348px;
+}
+
+line #twoItsmeLine{
+    position:absolute;
+    display:none;
+    top:317px;
+    left:-107px;
+}
+
+line #conLine{
+    position:absolute;
+    display:none;
+    top:319px;
+    left:982px;
+}
+
+#btnMove table{
+    position:absolute;
+    top:480px;
+}
+
+#rightMove{
+    left:1840px;
+}
+
+#leftMove{
+    left:40px;
+}
+
+.linkPo{
+    position:absolute;
+    top:660px;
+    left:820px;
+}
+
+.linkCuk{
+    position:absolute;
+    top:150px;
+    left:380px;
+}
+
+.linkCuk:hover{
+    cursor: pointer;
+    width:630px;
+}
