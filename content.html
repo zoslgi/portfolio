@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Content</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#conLine').show('slow');
+            $('#contLine').show('slow');
         });
     </script>
     <!-- script -->
     <script type="text/javascript" src="/portfolio/js/common.js"></script>
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="/portfolio/css/style.css">
+    <style>
+        #cont1{
+            background-image:url('/portfolio/img/content.png');
+            background-repeat: no-repeat;
+        }
+    </style>
+<title>Content</title>
 </head>
-<body onload="includeHtml()">    
+<body onload="onloadHtml('cont')">
     <!-- Header -->
-    <header>
-        <table id="left">
+    <div id="header">
+        <table id="hLeft">
             <td> 
                 <a href="/portfolio/home.html">
                     <img id="bHome" class="bHead" src="/portfolio/img/font/bHome.png">
                 </a>
             </td>
         </table>
-        <table id="right">
+        <table id="hRight">
             <td>
                 <a href="/portfolio/itsMe.html">
                     <img id="bItsme" class="bHead" src="/portfolio/img/font/bItsme.png">
@@ -39,19 +45,18 @@
                 </a>    
             </td>
             <td>
-                <a href="/portfolio/work.html">
+                <a href="/portfolio/woongjin.html">
                     <img id="bWork" class="bHead" src="/portfolio/img/font/bWork.png">
                 </a>
             </td>
         </table>
-    </header>
+    </div>   
     <!-- Content -->
-    <content>
-        <img src="/portfolio/img/content.png">
-    </content>
-    <!-- Line -->
-    <line>
-        <img id="conLine" src="/portfolio/img/con_line.png">
-    </line>
+    <div class="body">
+        <div class="content" id="cont1">
+            <!-- Line / link -->
+            <img class="line"  id="contLine" src="/portfolio/img/con_line.png">
+        </div>
+    </div>
 </body>
 </html>
