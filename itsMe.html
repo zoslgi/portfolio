@@ -7,41 +7,41 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
+        var main   = "its";
+        var itsCnt = 1;
+        var conCnt = 0;
         $(document).ready(function(){
-            var lineCnt = 0;
-            var moveCnt = 0;
-            var conCnt  = $('.content').length;
-            showLine(lineCnt);
-
-           $('.move').on('click', function(){
-                moveCnt = $(this).attr('target');
-                if((lineCnt == 1 && moveCnt == 1)||(lineCnt == 0 && moveCnt == -1)) return false;
-
-                (lineCnt == 0) ? lineCnt = 1 : lineCnt = 0;
-                showLine(lineCnt);
-           });
-
-           $(this).on('mousewheel DOMMouseScroll', function(e){
-                var wheel = e.originalEvent.wheelDelta;
-                if((lineCnt == 1 && wheel < 0)||(lineCnt == 0 && wheel > 0)) return; 
-
-                (lineCnt == 0) ? lineCnt = 1 : lineCnt = 0;
-                showLine(lineCnt);
-               
-           });
+            conCnt = $('.content').length;
+            $('#itsmeLine').show('slow');
         });
         
-        function showLine(x){
-            (x == 0) ? $('#itsmeLine').show('slow') : $('#itsmeLine').hide();
-            (x == 1) ? $('#twoItsmeLine').show('slow') : $('#twoItsmeLine').hide();
+        /* Move Slide */
+        function moveSlide(x){ 
+            $("#"+main+itsCnt).css('display', 'none');
+            itsCnt = itsCnt + Number(x);
+            $("#"+main+itsCnt).css('display', 'block');
+
+            showButton();
+            showLine();
         }
+
+        /* Show Button */
+        function showButton() {
+            (itsCnt != conCnt) ? $("#rMove").css('display', 'block') : $("#rMove").css('display', 'none');
+            (itsCnt != 1) ? $("#lMove").css('display', 'block') : $("#lMove").css('display', 'none');
+        }
+
+        /* Show Line */
+        function showLine() {
+            (itsCnt == 1) ? $('#itsmeLine').show('slow') : $('#itsmeLine').hide();
+            (itsCnt == 2) ? $('#twoItsmeLine').show('slow') : $('#twoItsmeLine').hide();
+        }
+
         /* Protfolio */
         function popUpPo() {
             window.open('http://hongsi.x-y.net/2017_ui6/zsg_c/');
         }
     </script>
-    <!-- script -->
-    <script type="text/javascript" src="/portfolio/js/common.js"></script>
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="/portfolio/css/style.css">
     <style>
@@ -96,8 +96,8 @@
             <img class="line" id="twoItsmeLine" src="/portfolio/img/itsme_2_line.png">
         </div>
         <!-- Button -->
-        <img id="rMove" class="move" target="1" src="/portfolio/img/rightButton.png" onclick="moveSlide('1')">
-        <img id="lMove" class="move" target="-1"src="/portfolio/img/leftButton.png"  onclick="moveSlide('-1')"> 
+        <img id="rMove" class="move" src="/portfolio/img/rightButton.png" onclick="moveSlide('1')">
+        <img id="lMove" class="move" src="/portfolio/img/leftButton.png"  onclick="moveSlide('-1')"> 
     </div>
 </body>
 </html>
