@@ -13,6 +13,19 @@
         $(document).ready(function(){
             conCnt = $('.content').length;
             $('#itsmeLine').show('slow');
+
+            /* Mouse Slide */
+            $(this).on('mousewheel DOMMouseScroll', function(e) {
+                var wheel = e.originalEvent.wheelDelta;
+                if((itsCnt == 1 && wheel > 0)||(itsCnt == conCnt && wheel < 0)) return; 
+
+                $("#"+main+itsCnt).css('display', 'none');
+                (wheel > 0) ? itsCnt-- : itsCnt++;
+                $("#"+main+itsCnt).css('display', 'block');
+
+                showButton();
+                showLine();
+            });
         });
         
         /* Move Slide */

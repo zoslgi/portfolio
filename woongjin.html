@@ -4,8 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- script -->
-    <script type="text/javascript" src="/portfolio/js/common.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        var main   = "woong";
+        var itsCnt = 1;
+        var conCnt = 0;
+        $(document).ready(function(){
+            conCnt = $('.content').length;
+
+            /* Mouse Slide */
+            $(this).on('mousewheel DOMMouseScroll', function(e) {
+                var wheel = e.originalEvent.wheelDelta;
+                if((itsCnt == 1 && wheel > 0)||(itsCnt == conCnt && wheel < 0)) return; 
+
+                $("#"+main+itsCnt).css('display', 'none');
+                (wheel > 0) ? itsCnt-- : itsCnt++;
+                $("#"+main+itsCnt).css('display', 'block');
+
+                showButton();
+            });
+        });
+        
+        /* Move Slide */
+        function moveSlide(x){ 
+            $("#"+main+itsCnt).css('display', 'none');
+            itsCnt = itsCnt + Number(x);
+            $("#"+main+itsCnt).css('display', 'block');
+
+            showButton();
+        }
+
+        /* Show Button */
+        function showButton() {
+            (itsCnt != conCnt) ? $("#rMove").css('display', 'block') : $("#rMove").css('display', 'none');
+            (itsCnt != 1) ? $("#lMove").css('display', 'block') : $("#lMove").css('display', 'none');
+        }
+    </script>
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="/portfolio/css/style.css">
     <style>
@@ -36,7 +71,7 @@
     </style>
 <title>Woongjin</title>
 </head>
-<body onload="onloadHtml('woong')">
+<body>
     <!-- Header -->
     <div id="header">
         <table id="hLeft">
